@@ -1,0 +1,359 @@
+{
+  // * Editor
+  "editor.tabSize": 2,
+  "editor.fontSize": 9,
+  "editor.wordWrap": "on",
+  "editor.formatOnSave": true,
+  "editor.letterSpacing": 0.4,
+  "editor.fontLigatures": true,
+  "editor.linkedEditing": true,
+  "editor.formatOnPaste": true,
+  "editor.smoothScrolling": true,
+  "editor.guides.bracketPairs": true,
+  "editor.stickyScroll.enabled": true,
+  "editor.suggest.showSnippets": false,
+  "editor.inlineSuggest.enabled": true,
+  "editor.minimap.renderCharacters": false,
+  "editor.guides.bracketPairsHorizontal": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontFamily": "'JetBrains Mono', Consolas, 'Courier New', monospace",
+
+  // * Workbench
+  "workbench.tree.indent": 16,
+  "workbench.startupEditor": "none",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.colorTheme": "SynthWave '84",
+  "workbench.editor.enablePreview": false,
+
+  // * Git
+  "git.autofetch": true,
+  "git.confirmSync": false,
+
+  // * Explorer
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    ".dotfiles": ".*"
+  },
+
+  // * Terminal
+  "terminal.integrated.fontSize": 11,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.useWslProfiles": false,
+  "terminal.integrated.defaultProfile.linux": "npm",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "terminal.integrated.persistentSessionReviveProcess": "onExitAndWindowClose",
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "bash",
+      "icon": "terminal-bash"
+    },
+    "client": {
+      "path": "bash",
+      "icon": "vm-running",
+      "color": "terminal.ansiCyan",
+      "overrideName": true
+    },
+    "server": {
+      "path": "bash",
+      "icon": "server",
+      "color": "terminal.ansiGreen",
+      "overrideName": true
+    },
+    "npm": {
+      "path": "bash",
+      "icon": "notebook",
+      "color": "terminal.ansiRed",
+      "overrideName": true
+    },
+    "docker": {
+      "path": "bash",
+      "icon": "cloud",
+      "color": "terminal.ansiBlue",
+      "overrideName": true
+    },
+    "git": {
+      "path": "bash",
+      "icon": "github-inverted",
+      "color": "terminal.ansiWhite",
+      "overrideName": true
+    },
+    "rust": {
+      "path": "bash",
+      "icon": "gear",
+      "color": "terminal.ansiRed",
+      "overrideName": true
+    }
+  },
+
+  // * Languages
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+
+  // * Debugger
+  "debug.focusEditorOnBreak": false,
+  "debug.focusWindowOnBreak": false,
+  "html.format.indentInnerHtml": true,
+  "audioCues.lineHasInlineSuggestion": "off",
+  "files.associations": {
+    "*.mdx": "mdx",
+    "*.css": "tailwindcss",
+    "**.env**": "properties",
+    ".{prompt,dir_colors}": "shellscript"
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+
+  // * Formatters
+  "[mongod-config]": {
+    "editor.defaultFormatter": "dalirnet.mongod-config"
+  },
+  "[NGINX]": {
+    "editor.defaultFormatter": "hangxingliu.vscode-nginx-conf-hint"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "mikeburgh.xml-format"
+  },
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "[php]": {
+    "editor.defaultFormatter": "DEVSENSE.phptools-vscode"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
+  },
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // * Plugins
+  // ** Prettier
+  "prettier.configPath": "/home/nivaldo/src/config/dotfiles/.prettierrc.js",
+
+  // ** ESLint
+  "eslint.rules.customizations": [
+    {
+      "rule": "*",
+      "severity": "warn"
+    }
+  ],
+
+  // ** Github
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": true,
+    "scminput": false,
+    "yaml": true,
+    "prisma": true,
+    "typescript": true,
+    "astro": true
+  },
+
+  // ** Live Share
+  "liveshare.focusBehavior": "prompt",
+  "liveshare.accessibility.soundsEnabled": false,
+
+  // ** RedHat
+  "redhat.telemetry.enabled": true,
+
+  // ** Indent Rainbow
+  "indentRainbow.colors": [
+    "rgba(255,255,64,0.07)",
+    "rgba(203,23,239,0.07)",
+    "rgba(51,218,240,0.07)"
+  ],
+
+  // ** vscode-icons
+  "vsicons.associations.files": [
+    {
+      "icon": "docker2",
+      "extensions": [
+        "docker-compose.dev.yml",
+        "docker-compose.server.yml",
+        "docker-compose.client.yml",
+        "Dockerfile.dev"
+      ],
+      "filename": true,
+      "format": "svg"
+    },
+    {
+      "icon": "dockertest",
+      "extensions": [".dockerignore"],
+      "filename": true,
+      "format": "svg"
+    },
+    {
+      "icon": "dockertest2",
+      "extensions": ["docker-compose.test.yml", "Dockerfile.test"],
+      "filename": true,
+      "format": "svg"
+    },
+    {
+      "icon": "mongo",
+      "extensions": ["mongod.conf"],
+      "filename": true,
+      "format": "svg"
+    },
+    {
+      "icon": "config",
+      "extensions": [
+        ".env.prod",
+        ".env.dev",
+        ".env.test",
+        ".env.example",
+        ".env.development",
+        ".env.production"
+      ],
+      "filename": true,
+      "format": "svg"
+    },
+    {
+      "icon": "ng_component_html",
+      "extensions": ["component.html", "component.htm"],
+      "format": "svg",
+      "disabled": true
+    },
+    {
+      "icon": "ng_component_css",
+      "extensions": ["component.css"],
+      "format": "svg",
+      "disabled": true
+    },
+    {
+      "icon": "ng_component_less",
+      "extensions": ["component.less"],
+      "format": "svg",
+      "disabled": true
+    },
+    {
+      "icon": "ng_component_sass",
+      "extensions": ["component.sass"],
+      "format": "svg",
+      "disabled": true
+    },
+    {
+      "icon": "ng_component_scss",
+      "extensions": ["component.scss"],
+      "format": "svg",
+      "disabled": true
+    },
+    {
+      "icon": "xml",
+      "extensions": ["web.config"],
+      "format": "svg",
+      "filename": true
+    },
+    {
+      "icon": "nginx",
+      "extensions": ["nginx.dev.conf"],
+      "format": "svg",
+      "filename": true
+    },
+    {
+      "icon": "favicon",
+      "extensions": ["favicon.maskable.ico"],
+      "format": "svg",
+      "filename": true
+    },
+    {
+      "icon": "bat",
+      "extensions": [".dotfiles"],
+      "format": "svg",
+      "filename": true
+    },
+    {
+      "icon": "shell",
+      "extensions": ["commit-msg", "pre-commit"],
+      "format": "svg",
+      "filename": true
+    }
+  ],
+  "vsicons.associations.folders": [
+    {
+      "icon": "model",
+      "extensions": ["schema", "schemas"],
+      "format": "svg"
+    },
+    {
+      "icon": "controller",
+      "extensions": ["contexts"],
+      "format": "svg"
+    },
+    {
+      "icon": "certificate",
+      "extensions": ["auth"],
+      "format": "svg"
+    },
+    {
+      "icon": "helper",
+      "extensions": ["api"],
+      "format": "svg"
+    },
+    {
+      "icon": "github",
+      "extensions": ["workflows"],
+      "format": "svg"
+    },
+    {
+      "icon": "client",
+      "extensions": ["web"],
+      "format": "svg"
+    },
+    {
+      "icon": "package",
+      "extensions": ["collections", "Collections", "collection", "Collection"],
+      "format": "svg"
+    },
+    {
+      "icon": "app",
+      "extensions": ["apps"],
+      "format": "svg"
+    },
+    {
+      "icon": "db",
+      "extensions": ["store"],
+      "format": "svg"
+    },
+    {
+      "icon": "sso",
+      "extensions": ["ssl"],
+      "format": "svg"
+    },
+    {
+      "icon": "certificate",
+      "extensions": ["security"],
+      "format": "svg"
+    },
+    {
+      "icon": "controller",
+      "extensions": ["functions"],
+      "format": "svg"
+    },
+    {
+      "icon": "model",
+      "extensions": ["data-transformations"],
+      "format": "svg"
+    },
+    {
+      "icon": "script",
+      "extensions": ["automations"],
+      "format": "svg"
+    }
+  ],
+  "window.zoomLevel": -1
+}
