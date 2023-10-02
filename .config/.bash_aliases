@@ -15,17 +15,22 @@ alias apt-routine="sudo apt update && sudo apt upgrade -y && sudo apt autoclean 
 # Open current folder in file explorer
 alias file-explorer="xdg-open ."
 
-# Get current IP
+# List external IP
 alias ip="curl -s ipinfo.io | jq -r '.ip'"
 
-# List current IP details
+# List external, internal and local IP
 alias ipl="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
 
 # Miscellaneous
-alias hosts="sudo $EDITOR /etc/hosts"
 alias quit="exit"
-alias week="date +%V"
 alias speedtest="wget -O /dev/null http://speed.transip.nl/100mb.bin"
+
+# Directory listing/traversal
+alias l="ls -lahA --color -G --time-style=long-iso --group-directories-first"
+alias ll="ls -lA --color -G"
+alias lt="ls -lhAtr --color -G --time-style=long-iso --group-directories-first"
+alias ld="ls -ld --color -G */"
+alias lp="stat -c '%a %n' *"
 
 ## Functions
 

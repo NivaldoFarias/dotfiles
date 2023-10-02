@@ -56,7 +56,6 @@ _bash_prompt_config() {
   P_YELLOW=${YELLOW}
   P_RED=${RED}
   P_RESET=${RESET}
-
 }
 
 bash_prompt_command() {
