@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Exact Solarized color theme for the color GNU ls utility.
 # Designed for dircolors (GNU coreutils) 5.97
 #
@@ -30,7 +32,6 @@
 #   for multimedia files which are usually accessed in a GUI folder browser anyway.
 #   And blue is kept for custom use of this scheme's user.
 # - See table below to see the assignments.
-
 
 # Installation instructions:
 # This file goes in the /etc directory, and must be world readable.
@@ -101,7 +102,7 @@ EIGHTBIT 1
 # Below are the color init strings for the basic file types. A color init
 # string consists of one or more of the following numeric codes:
 #
-# Attribute codes: 
+# Attribute codes:
 #   00=none 01=bold 04=underscore 05=blink 07=reverse 08=concealed
 # Text color codes:
 #   30=black 31=red 32=green 33=yellow 34=blue 35=magenta 36=cyan 37=white
@@ -114,8 +115,8 @@ EIGHTBIT 1
 #   ANSI Color code       Solarized  Notes                Universal             SolDark              SolLight
 #   ~~~~~~~~~~~~~~~       ~~~~~~~~~  ~~~~~                ~~~~~~~~~             ~~~~~~~              ~~~~~~~~
 #   00    none                                            NORMAL, FILE          <SAME>               <SAME>
-#   30    black           base02                                                
-#   01;30 bright black    base03     bg of SolDark                                                                         
+#   30    black           base02
+#   01;30 bright black    base03     bg of SolDark
 #   31    red             red                             docs & mm src         <SAME>               <SAME>
 #   01;31 bright red      orange                          EXEC                  <SAME>               <SAME>
 #   32    green           green                           editable text         <SAME>               <SAME>
@@ -128,10 +129,9 @@ EIGHTBIT 1
 #   01;35 bright magenta  violet                          archive/compressed    <SAME>               <SAME>
 #   36    cyan            cyan                            DIR                   <SAME>               <SAME>
 #   01;36 bright cyan     base1                           unimportant non-text                       <SAME>
-#   37    white           base2                                                                      
-#   01;37 bright white    base3      bg in SolLight                                                                        
+#   37    white           base2
+#   01;37 bright white    base3      bg in SolLight
 #   05;37;41                         unclear in Putty dark
-
 
 ### By file type
 
@@ -145,30 +145,45 @@ DIR 36
 LINK 35
 
 # pipe, socket, block device, character device (blue bg)
-FIFO 30;44
-SOCK 35;44
-DOOR 35;44 # Solaris 2.5 and later
-BLK  33;44
-CHR  37;44
-
+FIFO 30
+44
+SOCK 35
+44
+DOOR 35
+44 # Solaris 2.5 and later
+BLK 33
+44
+CHR 37
+44
 
 #############################################################################
 ### By file attributes
 
 # Orphaned symlinks (blinking white on red)
 # Blink may or may not work (works on iTerm dark or light, and Putty dark)
-ORPHAN  05;37;41
+ORPHAN 05
+37
+41
 # ... and the files that orphaned symlinks point to (blinking white on red)
-MISSING 05;37;41
+MISSING 05
+37
+41
 
 # files with execute permission
-EXEC 01;31  # Unix
-.cmd 01;31  # Win
-.exe 01;31  # Win
-.com 01;31  # Win
-.bat 01;31  # Win
-.reg 01;31  # Win
-.app 01;31  # OSX
+EXEC 01
+31 # Unix
+.cmd 01
+31 # Win
+.exe 01
+31 # Win
+.com 01
+31 # Win
+.bat 01
+31 # Win
+.reg 01
+31 # Win
+.app 01
+31 # OSX
 
 #############################################################################
 ### By extension
@@ -266,7 +281,7 @@ EXEC 01;31  # Unix
 
 # Audio
 .aac 33
-.au  33
+.au 33
 .flac 33
 .mid 33
 .midi 33
@@ -275,7 +290,7 @@ EXEC 01;31  # Unix
 .mpa 33
 .mpeg 33
 .mpg 33
-.ogg  33
+.ogg 33
 .ra 33
 .wav 33
 
@@ -323,51 +338,94 @@ EXEC 01;31  # Unix
 .psd 31
 
 # Archives, compressed
-.7z   1;35
-.apk  1;35
-.arj  1;35
-.bin  1;35
-.bz   1;35
-.bz2  1;35
-.cab  1;35  # Win
-.deb  1;35
-.dmg  1;35  # OSX
-.gem  1;35
-.gz   1;35
-.iso  1;35
-.jar  1;35
-.msi  1;35  # Win
-.rar  1;35
-.rpm  1;35
-.tar  1;35
-.tbz  1;35
-.tbz2 1;35
-.tgz  1;35
-.tx   1;35
-.war  1;35
-.xpi  1;35
-.xz   1;35
-.z    1;35
-.Z    1;35
-.zip  1;35
+.7z 1
+35
+.apk 1
+35
+.arj 1
+35
+.bin 1
+35
+.bz 1
+35
+.bz2 1
+35
+.cab 1
+35 # Win
+.deb 1
+35
+.dmg 1
+35 # OSX
+.gem 1
+35
+.gz 1
+35
+.iso 1
+35
+.jar 1
+35
+.msi 1
+35 # Win
+.rar 1
+35
+.rpm 1
+35
+.tar 1
+35
+.tbz 1
+35
+.tbz2 1
+35
+.tgz 1
+35
+.tx 1
+35
+.war 1
+35
+.xpi 1
+35
+.xz 1
+35
+.z 1
+35
+.Z 1
+35
+.zip 1
+35
 
 # For testing
 .ANSI-30-black 30
-.ANSI-01;30-brblack 01;30
+.ANSI-01
+30-brblack 01
+30
 .ANSI-31-red 31
-.ANSI-01;31-brred 01;31
+.ANSI-01
+31-brred 01
+31
 .ANSI-32-green 32
-.ANSI-01;32-brgreen 01;32
+.ANSI-01
+32-brgreen 01
+32
 .ANSI-33-yellow 33
-.ANSI-01;33-bryellow 01;33
+.ANSI-01
+33-bryellow 01
+33
 .ANSI-34-blue 34
-.ANSI-01;34-brblue 01;34
+.ANSI-01
+34-brblue 01
+34
 .ANSI-35-magenta 35
-.ANSI-01;35-brmagenta 01;35
+.ANSI-01
+35-brmagenta 01
+35
 .ANSI-36-cyan 36
-.ANSI-01;36-brcyan 01;36
+.ANSI-01
+36-brcyan 01
+36
 .ANSI-37-white 37
-.ANSI-01;37-brwhite 01;37
+.ANSI-01
+37-brwhite 01
+37
 
 #############################################################################
 # Your customizations
@@ -375,9 +433,12 @@ EXEC 01;31  # Unix
 # Unimportant text files
 # For universal scheme, use brightgreen 01;32
 # For optimal on light bg (but too prominent on dark bg), use white 01;34
-.log 01;32
-*~ 01;32
-*# 01;32
+.log 01
+32
+*~ 01
+32
+*# 01
+32
 #.log 01;34
 #*~ 01;34
 #*# 01;34
@@ -385,20 +446,34 @@ EXEC 01;31  # Unix
 # Unimportant non-text files
 # For universal scheme, use brightcyan 01;36
 # For optimal on dark bg (but too prominent on light bg), change to 01;33
-.bak 01;36
-.BAK 01;36
-.old 01;36
-.OLD 01;36
-.org_archive 01;36
-.off 01;36
-.OFF 01;36
-.dist 01;36
-.DIST 01;36
-.orig 01;36
-.ORIG 01;36
-.swp 01;36
-.swo 01;36
-*,v 01;36
+.bak 01
+36
+.BAK 01
+36
+.old 01
+36
+.OLD 01
+36
+.org_archive 01
+36
+.off 01
+36
+.OFF 01
+36
+.dist 01
+36
+.DIST 01
+36
+.orig 01
+36
+.ORIG 01
+36
+.swp 01
+36
+.swo 01
+36
+*,v 01
+36
 #.bak 01;33
 #.BAK 01;33
 #.old 01;33

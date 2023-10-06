@@ -1,4 +1,4 @@
-## Shortcuts
+#!/bin/bash
 
 # List declared aliases
 alias aliases="alias | sed 's/=.*//'"
@@ -9,7 +9,7 @@ alias functions="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
 # List declared paths
 alias paths='echo -e ${PATH//:/\\n}'
 
-# Run apt update, upgrade, autoclean and autoremove 
+# Run apt update, upgrade, autoclean and autoremove
 alias apt-routine="sudo apt update && sudo apt upgrade -y && sudo apt autoclean && sudo apt autoremove -y"
 
 # Open current folder in file explorer
