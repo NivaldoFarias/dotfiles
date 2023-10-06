@@ -355,8 +355,11 @@
       "format": "svg"
     }
   ],
-  "window.zoomLevel": 0,
+  "window.zoomLevel": -1,
   "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[ignore]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   }
 }

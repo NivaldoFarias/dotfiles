@@ -1,5 +1,9 @@
 {
     "recommendations": [
+        // ShellScript
+        "timonwong.shellcheck",
+        "foxundermoon.shell-format",
+
         // C/C++
         "twxs.cmake",
         "ms-vscode.cmake-tools",
