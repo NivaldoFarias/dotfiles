@@ -1,7 +1,5 @@
 #!/bin/bash
 
-## Prompt
-
 _bash_prompt_config() {
   # Auxiliary variables
   local USER_SYMBOL
