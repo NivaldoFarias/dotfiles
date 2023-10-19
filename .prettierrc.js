@@ -17,6 +17,7 @@ module.exports = {
 	quoteProps: "consistent",
 	singleAttributePerLine: true,
 	htmlWhitespaceSensitivity: "ignore",
+	plugins: ["prettier-plugin-toml"],
 	overrides: [
 		{
 			files: ["*.d.ts", "*.json"],

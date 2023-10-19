@@ -17,7 +17,7 @@
   "editor.guides.bracketPairsHorizontal": true,
   "editor.bracketPairColorization.enabled": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.fontFamily": "'JetBrains Mono', Consolas, 'Courier New', monospace",
+  "editor.fontFamily": "JetBrainsMono Nerd Font Mono, 'monospace', monospace",
 
   // * Workbench
   "workbench.tree.indent": 16,
@@ -39,6 +39,8 @@
   },
 
   // * Terminal
+  "terminal.explorerKind": "external",
+  "terminal.external.linuxExec": "gnome-terminal",
   "terminal.integrated.fontSize": 11,
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.cursorBlinking": true,
@@ -103,9 +105,9 @@
   "audioCues.lineHasInlineSuggestion": "off",
   "files.associations": {
     "*.mdx": "mdx",
-    "*.css": "tailwindcss",
+    // "*.css": "tailwindcss",
     "**.env**": "properties",
-    ".{prompt,dir_colors}": "shellscript"
+    ".{prompt,dir_colors,functions,is-supported,aliases}": "shellscript"
   },
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
@@ -119,7 +121,7 @@
     "editor.defaultFormatter": "hangxingliu.vscode-nginx-conf-hint"
   },
   "[xml]": {
-    "editor.defaultFormatter": "mikeburgh.xml-format"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust-analyzer"
@@ -137,6 +139,9 @@
     "editor.defaultFormatter": "Prisma.prisma"
   },
   "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[toml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
@@ -354,12 +359,5 @@
       "extensions": ["automations"],
       "format": "svg"
     }
-  ],
-  "window.zoomLevel": -1,
-  "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "[ignore]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  }
+  ]
 }

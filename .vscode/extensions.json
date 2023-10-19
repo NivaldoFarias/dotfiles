@@ -21,9 +21,6 @@
         // Haskell
         "haskell.haskell",
 
-        // XML
-        "mikeburgh.xml-format",
-
         // Prettier/ESLint
         "esbenp.prettier-vscode",
         "dbaeumer.vscode-eslint",
@@ -101,7 +98,6 @@
         "Prisma.prisma",                                        // Prisma
         "mrmlnc.vscode-scss",                                   // SCSS
         "redhat.vscode-yaml",                                   // YAML
-        "DotJoshJohnson.xml",                                   // XML
         "webben.browserslist",                                  // Browserslist     
         "unifiedjs.vscode-mdx",                                 // MDX
         "dalirnet.mongod-config",                               // MongoDB

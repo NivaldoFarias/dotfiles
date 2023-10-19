@@ -74,6 +74,31 @@ calc() {
   echo "$*" | bc -l
 }
 
+# Count the number of files in a directory with a given extension
+# if a directory is not specified, the current directory is used
+count-files() {
+  local EXTENSION
+  local DIRECTORY
+
+  EXTENSION=${1:-*}
+  DIRECTORY=${2:-.}
+
+  find "$DIRECTORY" -max-depth=1 -type f -name "$EXTENSION" | wc -l
+}
+
+# Count the number of lines in each file for a given extension
+# if a directory is not specified, the current directory is used
+# print the parsed filename and line count for each file found
+count-lines() {
+  local EXTENSION
+  local DIRECTORY
+
+  EXTENSION=${1:-*}
+  DIRECTORY=${2:-.}
+
+  find "$DIRECTORY" -max-depth=1 -type f -name "$EXTENSION" -exec wc -l {} \;
+}
+
 # Show line, optionally show surrounding lines
 line() {
   local LINE_NUMBER
