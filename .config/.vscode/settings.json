@@ -5,7 +5,7 @@
   "editor.wordWrap": "on",
   "editor.formatOnSave": true,
   "editor.letterSpacing": 0.4,
-  "editor.fontLigatures": true,
+  "editor.fontLigatures": false,
   "editor.linkedEditing": true,
   "editor.formatOnPaste": true,
   "editor.smoothScrolling": true,
@@ -17,7 +17,7 @@
   "editor.guides.bracketPairsHorizontal": true,
   "editor.bracketPairColorization.enabled": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.fontFamily": "JetBrainsMono Nerd Font Mono, 'monospace', monospace",
+  "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', 'monospace', monospace",
 
   // * Workbench
   "workbench.tree.indent": 16,
@@ -39,16 +39,17 @@
   },
 
   // * Terminal
-  "terminal.explorerKind": "external",
-  "terminal.external.linuxExec": "gnome-terminal",
   "terminal.integrated.fontSize": 11,
-  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorStyle": "block",
+  "terminal.integrated.customGlyphs": true,
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.useWslProfiles": false,
+  "terminal.integrated.gpuAcceleration": "auto",
   "terminal.integrated.defaultProfile.linux": "npm",
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "terminal.integrated.persistentSessionReviveProcess": "onExitAndWindowClose",
+  "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font Mono', 'monospace', monospace",
   "terminal.integrated.profiles.linux": {
     "bash": {
       "path": "bash",
@@ -147,7 +148,7 @@
 
   // * Plugins
   // ** Prettier
-  "prettier.configPath": "/home/nivaldo/src/config/dotfiles/.prettierrc.js",
+  "prettier.configPath": "/home/nivaldo/src/config/dotfiles/.config/.prettierrc.js",
 
   // ** ESLint
   "eslint.rules.customizations": [
@@ -217,6 +218,7 @@
     {
       "icon": "config",
       "extensions": [
+        "config",
         ".env.prod",
         ".env.dev",
         ".env.test",
@@ -286,6 +288,11 @@
       "extensions": ["commit-msg", "pre-commit"],
       "format": "svg",
       "filename": true
+    },
+    {
+      "icon": "key",
+      "extensions": ["pub"],
+      "format": "svg"
     }
   ],
   "vsicons.associations.folders": [
@@ -359,5 +366,5 @@
       "extensions": ["automations"],
       "format": "svg"
     }
-  ]
+  ],
 }
