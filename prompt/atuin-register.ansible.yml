@@ -1,0 +1,37 @@
+---
+- name: Setup Atuin Account
+  hosts: all
+  become: true
+  vars_prompt:
+    - name: atuin_account_username
+      prompt: "Atuin account username"
+      private: false
+      default: "not_provided"
+    - name: atuin_account_email
+      prompt: "Atuin account email"
+      private: false
+      default: "not_provided"
+    - name: atuin_account_password
+      prompt: "Atuin account password"
+      private: true
+      default: "not_provided"
+  tasks:
+    - name: Register a new Atuin account
+      ansible.builtin.shell: atuin register -u "{{ atuin_account_username }}" -e "{{ atuin_account_email }}" -p "{{ atuin_account_password }}"
+      args:
+        executable: /bin/atuin
+        chdir: "/"
+        creates: "/bin/.atuin"
+      when:
+        - atuin_account_username != "not_provided"
+        - atuin_account_email != "not_provided"
+        - atuin_account_password != "not_provided"
+    - name: Login to Atuin
+      ansible.builtin.shell: atuin login -u "{{ atuin_account_username }}" -p "{{ atuin_account_password }}"
+      args:
+        executable: /bin/atuin
+        chdir: "/"
+        creates: "/bin/.atuin"
+      when:
+        - atuin_account_username != "not_provided"
+        - atuin_account_password != "not_provided"

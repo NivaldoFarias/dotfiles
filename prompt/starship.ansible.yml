@@ -1,0 +1,39 @@
+---
+- name: Setup Starship
+  hosts: all
+  become: true
+  tasks:
+    - name: Ensure font directory exists
+      ansible.builtin.file:
+        path: "{{ lookup('env', 'HOME') }}/.fonts"
+        state: directory
+        mode: "0600"
+    - name: Check if JetBrainsMono exists
+      changed_when: false
+      ansible.builtin.shell: "ls {{ lookup('env', 'HOME') }}/.fonts/JetBrainsMono*"
+      register: jetbrains_exists
+      ignore_errors: true
+    - name: Download JetBrainsMono
+      when: jetbrains_exists is failed
+      ansible.builtin.unarchive:
+        src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip
+        dest: "{{ lookup('env', 'HOME') }}/.fonts/"
+        remote_src: true
+    - name: Download and install Starship
+      ansible.builtin.shell:
+        cmd: |
+          set -o pipefail
+          curl -sS https://starship.rs/install.sh
+          bash
+      args:
+        executable: /bin/bash
+        chdir: "{{ ansible_env.HOME }}"
+        creates: "{{ ansible_env.HOME }}/bin/starship"
+    - name: Append Starship to ".bashrc"
+      ansible.builtin.shell: echo 'eval "$(starship init bash)"' >> ~/.bashrc
+      args:
+        executable: /bin/bash
+        chdir: "{{ ansible_env.HOME }}"
+        creates: "{{ ansible_env.HOME }}/.bashrc"
+      register: starship_init
+      changed_when: starship_init.stdout != ""

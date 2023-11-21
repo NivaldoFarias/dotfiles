@@ -1,0 +1,66 @@
+---
+- name: Setup Node.js
+  hosts: all
+  become: true
+  vars_prompt:
+    - name: node_default_version
+      prompt: "Default Node.js version to install (default: \"v21.2.0\")"
+      private: false
+      default: "21.2.0"
+    - name: install_canonical
+      prompt: "Install all canonical Node.js versions? (y/n)"
+      private: false
+      default: "n"
+  tasks:
+    - name: Install NVM
+      ansible.builtin.shell:
+        cmd: |
+          set -o pipefail
+          curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh
+          bash
+      args:
+        executable: /bin/bash
+        chdir: "{{ ansible_env.HOME }}"
+        creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
+    - name: Install and set default Node.js version
+      ansible.builtin.shell:
+        cmd: |
+          set -o pipefail
+          source "{{ ansible_env.HOME }}/.nvm/nvm.sh"
+          nvm install "{{ node_default_version }}"
+          nvm alias default "{{ node_default_version }}"
+      args:
+        executable: /bin/bash
+        chdir: "{{ ansible_env.HOME }}"
+        creates: "{{ ansible_env.HOME }}/.nvm/versions/{{ node_default_version }}"
+    - name: Install Bun
+      ansible.builtin.shell:
+        cmd: |
+          set -o pipefail
+          curl -fsSL https://bun.sh/install
+          bash
+      args:
+        executable: /bin/bash
+        chdir: "{{ ansible_env.HOME }}"
+        creates: "{{ ansible_env.HOME }}/.bun"
+    - name: Install canonical Node.js versions
+      changed_when: false
+      ansible.builtin.shell:
+        cmd: |
+          set -o pipefail
+          source "{{ ansible_env.HOME }}/.nvm/nvm.sh"
+          nvm install lts/argon     # 4.9.1
+          nvm install lts/boron     # 6.17.1
+          nvm install lts/carbon    # 8.17.0
+          nvm install lts/dubnium   # 10.24.1
+          nvm install lts/erbium    # 12.22.12
+          nvm install lts/fermium   # 14.21.3
+          nvm install lts/gallium   # 16.10.1
+          nvm install lts/hydrogen  # 18.18.2
+          nvm install lts/iron      # 20.9.0
+      args:
+        executable: /bin/bash
+        chdir: "{{ ansible_env.HOME }}"
+      when:
+        - install_canonical == "y"
+        - install_canonical == "Y"

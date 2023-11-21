@@ -1,0 +1,52 @@
+---
+- name: Setup Ubuntu Dependencies
+  hosts: all
+  become: true
+  tasks:
+    - name: Install required packages dependencies
+      ansible.builtin.apt:
+        pkg:
+          - xclip
+          - htop
+          - graphviz
+          - cmatrix
+          - curl
+          - build-essential
+          - openssl
+          - libreadline6-dev
+          - zlib1g
+          - zlib1g-dev
+          - libssl-dev
+          - libyaml-dev
+          - libreadline-dev
+          - libsqlite3-dev
+          - libxslt1-dev
+          - libgdbm-dev
+          - libncurses5-dev
+          - libncursesw5-dev
+          - libbz2-dev
+          - libsqlite3-dev
+          - llvm
+          - xz-utils
+          - tk-dev
+          - automake
+          - libtool
+          - bison
+          - libffi-dev
+          - liblzma-dev
+          - libsqlite3-0
+          - libmysqlclient-dev
+          - aptitude
+          - vlc
+          - postgresql
+          - gparted
+          - ffmpeg
+          - net-tools
+          - libpq-dev
+          - redis-server
+          - cmake
+          - ncdu
+          - mumble
+          - libpq-dev
+          - libmagickwand-dev
+          - gnome-tweaks

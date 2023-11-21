@@ -1,0 +1,19 @@
+---
+- name: Setup Bun
+  hosts: all
+  become: true
+  tasks:
+    - name: Install package "unzip", if not installed
+      ansible.builtin.package:
+        name: unzip
+        state: present
+    - name: Install Bun
+      ansible.builtin.shell:
+        cmd: |
+          set -o pipefail
+          curl -fsSL https://bun.sh/install
+          bash
+      args:
+        executable: /bin/bash
+        chdir: "{{ ansible_env.HOME }}"
+        creates: "{{ ansible_env.HOME }}/.bun"

@@ -1,0 +1,5 @@
+---
+- name: Setup VSCode
+  hosts: all
+  roles:
+    - role: ngetchell.vscode

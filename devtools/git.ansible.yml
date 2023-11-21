@@ -1,0 +1,53 @@
+---
+- name: Setup Git
+  hosts: all
+  vars:
+    gitconfig_path: "../files/.gitconfig"
+    gitignore_path: "../files/_gitignore"
+  vars_prompt:
+    - name: git_personal_username
+      prompt: "Enter your personal username for Git"
+      private: true
+    - name: git_personal_email
+      prompt: "Enter your personal email address for Git"
+      private: true
+    - name: git_work_username
+      prompt: "Enter your work username for Git"
+      private: true
+    - name: git_work_email
+      prompt: "Enter your work email address for Git"
+      private: true
+  tasks:
+    - name: Install git-core
+      become: true
+      ansible.builtin.apt:
+        pkg:
+          - git-core
+    - name: Install git-flow
+      become: true
+      ansible.builtin.apt:
+        pkg:
+          - git-flow
+    - name: Copy .gitconfig file
+      ansible.builtin.copy:
+        src: "{{ gitconfig_path }}"
+        dest: "~/.gitconfig"
+        mode: "0600"
+    - name: Configure "set-personal-account" Git alias
+      community.general.git_config:
+        name: alias.set-personal-account
+        value: "!git config user.name \"{{ git_personal_username }}\" && git config user.email \"{{ git_personal_email }}\""
+    - name: Configure "set-work-account" Git alias
+      community.general.git_config:
+        name: alias.set-work-account
+        value: "!git config user.name \"{{ git_work_username }}\" && git config user.email \"{{ git_work_email }}\""
+    - name: Configure Git ignore file
+      community.general.git_config:
+        name: core.excludesfile
+        scope: global
+        value: ~/.gitignore
+    - name: Copy .gitignore file
+      ansible.builtin.copy:
+        src: "{{ gitignore_path }}"
+        dest: "~/.gitignore"
+        mode: "0600"

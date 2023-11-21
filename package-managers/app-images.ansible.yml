@@ -1,0 +1,10 @@
+---
+- name: Setup App Images
+  hosts: all
+  become: true
+  become_user: root
+  tasks:
+    - name: Install FUSE2
+      ansible.builtin.apt:
+        pkg:
+          - libfuse2

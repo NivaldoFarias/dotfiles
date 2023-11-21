@@ -1,0 +1,8 @@
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
+[push]
+	autoSetupRemote = true
+[alias]
+	auto-commit = !git add -A && git commit -m

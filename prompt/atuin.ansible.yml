@@ -1,0 +1,63 @@
+---
+- name: Setup Atuin
+  changed_when: false
+  ansible.builtin.shell:
+    cmd: |
+      set -o pipefail
+      curl https://raw.githubusercontent.com/atuinsh/atuin/main/install.sh
+      bash
+  args:
+    executable: /bin/bash
+    chdir: "{{ ansible_env.HOME }}"
+
+- name: Download bash-preexec
+  ansible.builtin.shell:
+    cmd: |
+      set -o pipefail
+      curl https://raw.githubusercontent.com/rcaloras/bash-preexec/master/bash-preexec.sh -o ~/.bash-preexec.sh
+  args:
+    executable: /bin/bash
+    chdir: "{{ ansible_env.HOME }}"
+    creates: "{{ ansible_env.HOME }}/.bash-preexec.sh"
+
+- name: Append bash-preexec to ".bashrc" file
+  ansible.builtin.shell:
+    cmd: |
+      set -o pipefail
+      echo '[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh' >> ~/.bashrc
+  args:
+    executable: /bin/bash
+    chdir: "{{ ansible_env.HOME }}"
+    creates: "{{ ansible_env.HOME }}/.bashrc"
+
+- name: Append Atuin to ".bashrc" file
+  ansible.builtin.shell:
+    cmd: |
+      set -o pipefail
+      echo 'eval "$(atuin init bash)"' >> ~/.bashrc
+  args:
+    executable: /bin/bash
+    chdir: "{{ ansible_env.HOME }}"
+    creates: "{{ ansible_env.HOME }}/.bashrc"
+
+- name: Login with Atuin key
+  ansible.builtin.shell: atuin login {{ atuin_key }}
+  args:
+    executable: /bin/atuin
+    chdir: "/"
+    creates: "/bin/.atuin"
+  when: atuin_key != "not_provided"
+
+- name: Run "atuin-register" if no key is provided
+  ansible.builtin.import_tasks: atuin-register.yml
+  when: atuin_key == "not_provided"
+
+- name: Syncronize Atuin server
+  ansible.builtin.shell:
+    cmd: |
+      atuin import auto
+      atuin sync
+  args:
+    executable: /bin/atuin
+    chdir: "/"
+    creates: "/bin/.atuin"

@@ -1,5 +1,45 @@
 #!/bin/bash
 
+## Alises
+
+# List declared aliases
+alias aliases="alias | sed 's/=.*//'"
+
+# List declared functions
+alias functions="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
+
+# List declared paths
+alias paths='echo -e ${PATH//:/\\n}'
+
+# Run apt update, upgrade, autoclean and autoremove
+alias apt-routine="sudo apt update && sudo apt upgrade -y && sudo apt autoclean && sudo apt autoremove -y"
+
+# Open current folder in file explorer
+alias file-explorer="xdg-open ."
+
+# List external IP
+alias ip="curl -s ipinfo.io | jq -r '.ip'"
+
+# List external, internal and local IP
+alias ipl="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
+
+# Miscellaneous
+alias quit="exit"
+alias speedtest="wget -O /dev/null http://speed.transip.nl/100mb.bin"
+
+# Directory listing/traversal
+alias l="ls -lahA --color -G --time-style=long-iso --group-directories-first"
+alias ll="ls -lA --color -G"
+alias lt="ls -lhAtr --color -G --time-style=long-iso --group-directories-first"
+alias ld="ls -ld --color -G */"
+alias lp="stat -c '%a %n' *"
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+## Functions
+
 # Create a new directory and enter it
 mk() {
   mkdir -p "$@" && cd "$@" || exit
@@ -83,7 +123,7 @@ count-files() {
   EXTENSION=${1:-*}
   DIRECTORY=${2:-.}
 
-  find "$DIRECTORY" -max-depth=1 -type f -name "$EXTENSION" | wc -l
+  find "$DIRECTORY" -maxdepth 1 -type f -name "$EXTENSION" | wc -l
 }
 
 # Count the number of lines in each file for a given extension
@@ -96,7 +136,7 @@ count-lines() {
   EXTENSION=${1:-*}
   DIRECTORY=${2:-.}
 
-  find "$DIRECTORY" -max-depth=1 -type f -name "$EXTENSION" -exec wc -l {} \;
+  find "$DIRECTORY" -maxdepth 1 -type f -name "$EXTENSION" -exec wc -l {} \;
 }
 
 # Show line, optionally show surrounding lines
