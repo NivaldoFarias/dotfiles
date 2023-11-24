@@ -1,26 +1,28 @@
 ---
-- name: Setup Git
+- name: Configure Git
   hosts: all
-  vars_prompt:
-    - name: git_personal_username
-      prompt: "Enter your personal username for Git"
-      private: true
-    - name: git_personal_email
-      prompt: "Enter your personal email address for Git"
-      private: true
-    - name: git_work_username
-      prompt: "Enter your work username for Git"
-      private: true
-    - name: git_work_email
-      prompt: "Enter your work email address for Git"
-      private: true
-  tasks:
+  pre_tasks:
     - name: Install git-core and git-flow
       become: true
       ansible.builtin.apt:
         pkg:
           - git-core
           - git-flow
+  become: true
+  vars_prompt:
+    - name: git_personal_username
+      prompt: Enter your personal username for Git
+      private: false
+    - name: git_personal_email
+      prompt: Enter your personal email address for Git
+      private: false
+    - name: git_work_username
+      prompt: Enter your work username for Git
+      private: false
+    - name: git_work_email
+      prompt: Enter your work email address for Git
+      private: false
+  tasks:
     - name: Configure "set-personal-account" Git alias
       community.general.git_config:
         name: alias.set-personal-account

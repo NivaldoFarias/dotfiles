@@ -1,14 +1,19 @@
 ---
-- name: Run setups
-  hosts: all
+- name: Execute Tasks
+  hosts: localhost
   tasks:
-    - name: Execute each setup task
-      ansible.builtin.import_tasks: "{{ item }}" 
-      with_items:
-        - playbooks/copy-config-files.andrew.yml
-        - playbooks/git.ansible.yml
-        - playbooks/bun.ansible.yml
-        - playbooks/snap.ansible.yml
-        - playbooks/obs-studio.ansible.yml
-        - playbooks/starship.ansible.yml
-        # - playbooks/atuin.ansible.yml
+    - name: Execute `copy-config-files` Task
+      ansible.builtin.import_tasks: tasks/copy-config-files.ansible.yml
+    - name: Execute `snap` Task
+      ansible.builtin.import_tasks: tasks/snap.ansible.yml
+    - name: Execute `obs-studio` Task
+      ansible.builtin.import_tasks: tasks/obs-studio.ansible.yml
+    - name: Execute `bun` Task
+      ansible.builtin.import_tasks: tasks/bun.ansible.yml
+
+- name: Execute `git` Playbook
+  ansible.builtin.import_playbook: playbooks/git.ansible.yml
+- name: Execute `starship` Playbook
+  ansible.builtin.import_playbook: playbooks/starship.ansible.yml
+# - name: Execute `playbooks/atuin.ansible.yml`
+#   ansible.builtin.include_tasks: playbooks/atuin.ansible.yml

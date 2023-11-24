@@ -1,0 +1,56 @@
+---
+- name: Update PPA repository and Install AppImageLauncher
+  ansible.builtin.apt_repository:
+    repo: ppa:appimagelauncher-team/stable
+    state: present
+  become: true
+- name: Install required apt packages dependencies
+  ansible.builtin.apt:
+    pkg:
+      - xclip
+      - htop
+      - unzip
+      - graphviz
+      - cmatrix
+      - curl
+      - build-essential
+      - openssl
+      - libreadline6-dev
+      - zlib1g
+      - zlib1g-dev
+      - libssl-dev
+      - libyaml-dev
+      - libreadline-dev
+      - libsqlite3-dev
+      - libxslt1-dev
+      - libgdbm-dev
+      - libncurses5-dev
+      - libncursesw5-dev
+      - libbz2-dev
+      - libsqlite3-dev
+      - llvm
+      - xz-utils
+      - tk-dev
+      - automake
+      - libtool
+      - bison
+      - libfuse2
+      - libffi-dev
+      - liblzma-dev
+      - libsqlite3-0
+      - libmysqlclient-dev
+      - aptitude
+      - vlc
+      - postgresql
+      - gparted
+      - ffmpeg
+      - net-tools
+      - libpq-dev
+      - redis-server
+      - cmake
+      - ncdu
+      - mumble
+      - libpq-dev
+      - libmagickwand-dev
+      - gnome-tweaks
+    become: true

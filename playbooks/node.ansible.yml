@@ -1,9 +1,0 @@
----
-- name: Setup NVM and Node.js
-  hosts: all
-  become: true
-  roles:
-    - name: stephdewit.nvm
-      version: "3.4.0"
-      nvm_version: "latest"
-      nvm_node_version: "21.2.0"

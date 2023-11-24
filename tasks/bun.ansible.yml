@@ -9,4 +9,4 @@
     executable: /bin/bash
     chdir: "{{ ansible_env.HOME }}"
     creates: "{{ ansible_env.HOME }}/.bun"
-  become: true  
+  become: true
