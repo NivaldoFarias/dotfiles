@@ -1,0 +1,6 @@
+---
+- name: Setup Snap Packages | Install Discord and Spotify
+  community.general.snap:
+    name:
+      - discord
+      - spotify

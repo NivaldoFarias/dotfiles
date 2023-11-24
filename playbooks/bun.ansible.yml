@@ -1,0 +1,12 @@
+---
+- name: Install Bun
+  ansible.builtin.shell:
+    cmd: |
+      set -o pipefail
+      curl -fsSL https://bun.sh/install
+      bash
+  args:
+    executable: /bin/bash
+    chdir: "{{ ansible_env.HOME }}"
+    creates: "{{ ansible_env.HOME }}/.bun"
+  become: true  

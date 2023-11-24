@@ -1,0 +1,17 @@
+---
+- name: Copy config files
+  hosts: all
+  become: true
+  vars:
+    files_dir: "files"
+  tasks:
+    - name: Loop through files
+      ansible.builtin.copy:
+        src: "{{ files_dir }}/{{ item }}"
+        dest: "~/{{ item }}"
+        mode: "0600"
+      with_items:
+        - .gitconfig
+        - .config/starship.toml
+        - .bashrc
+        - .bash_aliases

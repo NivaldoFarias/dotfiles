@@ -6,15 +6,13 @@ roles:
     version: "2.5.0"
   - name: ecgalaxy.vscode
     version: "1.3.2"
-  - name: stephdewit.nvm
-    version: "3.4.0"
-    nvm_version: "latest"
-    nvm_node_version: "21.2.0"
   - name: hurricanehrndz.rustup
   - name: professormanhattan.snapd
     version: "0.0.1"
+  - name: Oefenweb.ssh_keys
 
 collections:
+  - ansible.posix
   - community.general
   - community.crypto
   - google.cloud

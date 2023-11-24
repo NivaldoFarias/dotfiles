@@ -1,9 +1,6 @@
 ---
 - name: Setup Git
   hosts: all
-  vars:
-    gitconfig_path: "../files/.gitconfig"
-    gitignore_path: "../files/_gitignore"
   vars_prompt:
     - name: git_personal_username
       prompt: "Enter your personal username for Git"
@@ -18,21 +15,12 @@
       prompt: "Enter your work email address for Git"
       private: true
   tasks:
-    - name: Install git-core
+    - name: Install git-core and git-flow
       become: true
       ansible.builtin.apt:
         pkg:
           - git-core
-    - name: Install git-flow
-      become: true
-      ansible.builtin.apt:
-        pkg:
           - git-flow
-    - name: Copy .gitconfig file
-      ansible.builtin.copy:
-        src: "{{ gitconfig_path }}"
-        dest: "~/.gitconfig"
-        mode: "0600"
     - name: Configure "set-personal-account" Git alias
       community.general.git_config:
         name: alias.set-personal-account

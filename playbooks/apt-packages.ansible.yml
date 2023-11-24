@@ -1,13 +1,19 @@
 ---
-- name: Setup Ubuntu Dependencies
+- name: Setup apt packages
   hosts: all
   become: true
+  become_user: root
   tasks:
-    - name: Install required packages dependencies
+    - name: Update PPA repository and Install AppImageLauncher
+      ansible.builtin.apt_repository:
+        repo: ppa:appimagelauncher-team/stable
+        state: present
+    - name: Install required apt packages dependencies
       ansible.builtin.apt:
         pkg:
           - xclip
           - htop
+          - unzip
           - graphviz
           - cmatrix
           - curl
@@ -32,6 +38,7 @@
           - automake
           - libtool
           - bison
+          - libfuse2
           - libffi-dev
           - liblzma-dev
           - libsqlite3-0

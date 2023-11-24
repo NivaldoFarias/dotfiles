@@ -5,11 +5,10 @@
     - name: Execute each setup task
       ansible.builtin.import_tasks: "{{ item }}" 
       with_items:
-        - devtools/git.ansible.yml
-        - package-managers/app-images.ansible.yml
-        - package-managers/app-image-launch.ansible.yml
-        - package-managers/bun.ansible.yml
-        - content/snap.ansible.yml
-        - content/obs-studio.ansible.yml
-        - prompt/starship.ansible.yml
-        - prompt/atuin.ansible.yml
+        - playbooks/copy-config-files.andrew.yml
+        - playbooks/git.ansible.yml
+        - playbooks/bun.ansible.yml
+        - playbooks/snap.ansible.yml
+        - playbooks/obs-studio.ansible.yml
+        - playbooks/starship.ansible.yml
+        # - playbooks/atuin.ansible.yml

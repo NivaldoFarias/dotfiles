@@ -1,0 +1,10 @@
+---
+- name: Install virtual camera
+  become: true
+  ansible.builtin.apt:
+    pkg:
+      - v4l2loopback-dkms
+- name: Update PPA repository and Install OBS
+  ansible.builtin.apt_repository:
+    repo: ppa:obsproject/obs-studio
+    state: present

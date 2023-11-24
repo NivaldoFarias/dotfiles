@@ -24,8 +24,8 @@ sudo apt install -y ansible
 With Ansible installed, install ansible scripts required dependencies:
 
 ```bash
-ansible-playbook devtools/apt-packages.ansible.yml --ask-become-pass
-ansible-galaxy install -r devtools/requirements.yml
+ansible-playbook playbooks/apt-packages.ansible.yml --ask-become-pass
+ansible-galaxy install -r requirements.yml
 ```
 
 Finally, run the setup script with Ansible:
