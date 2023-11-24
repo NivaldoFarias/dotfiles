@@ -4,11 +4,7 @@
   become: true
   become_user: root
   tasks:
-    - name: Download and install dependencies
-      ansible.builtin.package:
-        name: software-properties-common
-        state: present
-    - name: Add "appimage" stable repository from PPA and install its signing key on Ubuntu target
+    - name: Update PPA repository and Install AppImageLauncher
       ansible.builtin.apt_repository:
         repo: ppa:appimagelauncher-team/stable
         state: present

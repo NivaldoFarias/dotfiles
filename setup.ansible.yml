@@ -5,19 +5,11 @@
     - name: Execute each setup task
       ansible.builtin.import_tasks: "{{ item }}" 
       with_items:
-        - other/playbook.yml
-        - package-managers/app-images.yml
-        - package-managers/app-image-launch.yml
-        - devtools/git.yml
-        - languages/nodejs.yml
-        - languages/rust.yml
-        - package-managers/bun.yml
-        - package-managers/cargo.yml
-        - package-managers/snap.yml
-        - prompt/starship.yml
-        - prompt/atuin.yml
-        - devtools/vscode.yml
-        - browser/google-chrome.yml
-        - communication/discord.yml
-        - content/obs-studio.yml
-        - content/spotify.yml
+        - devtools/git.ansible.yml
+        - package-managers/app-images.ansible.yml
+        - package-managers/app-image-launch.ansible.yml
+        - package-managers/bun.ansible.yml
+        - content/snap.ansible.yml
+        - content/obs-studio.ansible.yml
+        - prompt/starship.ansible.yml
+        - prompt/atuin.ansible.yml

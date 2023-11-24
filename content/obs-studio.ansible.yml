@@ -4,16 +4,12 @@
   become: true
   become_user: root
   tasks:
-    - name: Install OBS && virtual camera
+    - name: Install virtual camera
       become: true
       ansible.builtin.apt:
         pkg:
           - v4l2loopback-dkms
-    - name: Update repository for OBS
-      changed_when: false
-      ansible.builtin.shell: sudo add-apt-repository ppa:obsproject/obs-studio && sudo apt -y update
-    - name: Install OBS
-      ansible.builtin.apt:
-        pkg:
-          - obs-studio
-      become: true
+    - name: Update PPA repository and Install OBS
+      ansible.builtin.apt_repository:
+        repo: ppa:obsproject/obs-studio
+        state: present

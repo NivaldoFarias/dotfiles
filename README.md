@@ -10,15 +10,22 @@ Sets up a new machine with my preferred environment configuration.
 All setup scripts use [Ansible](https://docs.ansible.com/). To set up Ansible, first update dependencies by running:
 
 ```bash
-sudo apt update
-sudo apt install software-properties-common
+sudo apt update 
+sudo apt install -y software-properties-common
 ```
 
 Then, add the Ansible PPA and install Ansible:
 
 ```bash
-sudo add-apt-repository --yes --update ppa:ansible/ansible
-sudo apt install ansible
+sudo add-apt-repository -y --update ppa:ansible/ansible
+sudo apt install -y ansible
+```
+
+With Ansible installed, install ansible scripts required dependencies:
+
+```bash
+ansible-playbook other/apt-packages.ansible.yml --ask-become-pass
+ansible-galaxy install -r requirements.yml
 ```
 
 Finally, run the setup script with Ansible:

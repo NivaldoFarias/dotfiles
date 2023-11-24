@@ -1,5 +1,0 @@
----
-- name: Setup Rust
-  hosts: all
-  roles:
-    - role: hurricanehrndz.rustup

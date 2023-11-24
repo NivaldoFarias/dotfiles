@@ -41,13 +41,3 @@
       community.general.git_config:
         name: alias.set-work-account
         value: "!git config user.name \"{{ git_work_username }}\" && git config user.email \"{{ git_work_email }}\""
-    - name: Configure Git ignore file
-      community.general.git_config:
-        name: core.excludesfile
-        scope: global
-        value: ~/.gitignore
-    - name: Copy .gitignore file
-      ansible.builtin.copy:
-        src: "{{ gitignore_path }}"
-        dest: "~/.gitignore"
-        mode: "0600"
