@@ -10,6 +10,8 @@
       ansible.builtin.import_tasks: tasks/obs-studio.ansible.yml
     - name: Execute `bun` Task
       ansible.builtin.import_tasks: tasks/bun.ansible.yml
+    - name: Execute `apt-packages` Task
+      ansible.builtin.import_tasks: tasks/apt-packages.ansible.yml
 
 - name: Execute `git` Playbook
   ansible.builtin.import_playbook: playbooks/git.ansible.yml

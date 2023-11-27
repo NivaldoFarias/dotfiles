@@ -7,7 +7,7 @@ Sets up a new machine with my preferred environment configuration.
 > [!IMPORTANT]
 > This script is intended to be run on a fresh install of Ubuntu 22.04 LTS. It will overwrite any existing configuration files.
 
-All setup scripts use [Ansible](https://docs.ansible.com/). To set up Ansible, first update dependencies by running:
+All setup scripts use [Ansible](https://docs.ansible.com/). To set up Ansible, first update dependencies:
 
 ```bash
 sudo apt update 
@@ -21,10 +21,9 @@ sudo add-apt-repository -y --update ppa:ansible/ansible
 sudo apt install -y ansible
 ```
 
-With Ansible installed, install ansible scripts required dependencies:
+With Ansible installed, install Ansible scripts required dependencies:
 
 ```bash
-ansible-playbook playbooks/apt-packages.ansible.yml --ask-become-pass
 ansible-galaxy install -r requirements.yml
 ```
 
