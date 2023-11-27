@@ -5,7 +5,7 @@ Scaffolds a development enviroment with my preferred configuration.
 ## Installation and Usage
 
 > [!IMPORTANT]
-> This script is intended to be run on a fresh install of Ubuntu 23.04 LTS [(Lunar Lobster)]([https://releases.ubuntu.com/jammy/](https://releases.ubuntu.com/lunar/)). It will overwrite any existing configuration files.
+> This script is intended to be run on a fresh install of Ubuntu 23.04 LTS [(Lunar Lobster)](https://releases.ubuntu.com/lunar/). It will overwrite any existing configuration files.
 
 All setup scripts use [Ansible](https://docs.ansible.com/). To set up Ansible, first update dependencies:
 
