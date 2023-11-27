@@ -5,7 +5,7 @@ Sets up a new machine with my preferred environment configuration.
 ## Installation and Usage
 
 > [!IMPORTANT]
-> This script is intended to be run on a fresh install of Ubuntu 22.04 LTS. It will overwrite any existing configuration files.
+> This script is intended to be run on a fresh install of Ubuntu 22.04 LTS [(Jammy Jellyfish)](https://releases.ubuntu.com/jammy/). It will overwrite any existing configuration files.
 
 All setup scripts use [Ansible](https://docs.ansible.com/). To set up Ansible, first update dependencies:
 
