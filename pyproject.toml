@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "dotfiles"
+version = "0.0.1"
+description = "Scaffolds a development enviroment with my preferred configuration"
+authors = ["Nivaldo Farias <badivia.f@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/NivaldoFarias/dotfiles"
+homepage = "https://github.com/NivaldoFarias/dotfiles#readme"
+keywords = ["ansible", "dotfiles", "scaffold"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.dev-dependencies]
+ansible = "^9.0.1"
+ansible-lint = { version = "^6.22.0", markers = "platform_system != 'Windows'" }
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

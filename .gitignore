@@ -11,6 +11,9 @@ package-lock.json
 logs/
 .scannerwork
 
+# Python Virtual Environment
+.venv/
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

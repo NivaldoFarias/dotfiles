@@ -1,6 +1,6 @@
 # `dotfiles`
 
-Sets up a new machine with my preferred environment configuration.
+Scaffolds a development enviroment with my preferred configuration.
 
 ## Installation and Usage
 
@@ -31,4 +31,21 @@ Finally, run the setup script with Ansible:
 
 ```bash
 ansible-playbook setup.ansible.yml --ask-become-pass
+```
+
+## Development
+
+The only requirement for development for this project is [Ansible Lint](https://ansible.readthedocs.io/projects/lint/).
+
+To setup the development enviroment, we'll need a Python virtual environment. To create one, run the following commands:
+
+```bash
+python3 -m venv .venv
+source venv/bin/activate
+``` 
+
+Then, install the required dependencies:
+
+```bash
+pip install -r requirements-dev.txt
 ```
